@@ -7,7 +7,7 @@ import Post_Comments_Toolbar from './Post_Comments_Toolbar'
 
 
 /**
- * Class representing a Category with its posts
+ * Class representing a Category with its list of posts
  * @extends Component
  */
 class Category extends Component {
