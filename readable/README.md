@@ -1,3 +1,12 @@
+## Project Title
+
+It is a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
+
+
+## Specification
+The server is built in Node.The code will talk to the server using documented API endpoints. You can use the server's endpoints to manage storing, reading, updating, and deleting data for your application.
+The front end is a React/Redux application using React Bootstrap.
+
  Readable API Server
 
 ## Installation
