@@ -13,11 +13,11 @@ Categories
 Posts
 Comments
 
-# Categories
+## Categories
 The server supports a small, fixed number of categories that users can put posts into. Categories are simple objects containing a name and a URL path (usually the same string). The server does not have methods for creating/modifying/deleting these categories.
-# Posts
+## Posts
 It is the building block of the application.
-# Comments
+## Comments
 Comments are attached to parent posts
 
 
