@@ -6,21 +6,14 @@ import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, Overl
 import { itemsFetchCategory,itemsFetchPosts  } from '../actions';
 import { Link,withRouter } from 'react-router-dom';
 
-
+//the redux form was designed with help from
+//https://www.davidmeents.com/blog/create-redux-form-validation-initialized-values/
 const form = reduxForm({
   form: 'CreateEditPost',
   //validate
 });
 
-// const validate = (values) => {
-//   const errors = {};
-//   console.log("values at validation: ", values);
-//   if (!values.body) {
-//     errors.body = 'Enter your Post details';
-//   }
-//   console.log("The current set of errors is", errors);
-//   return errors;
-// }
+
 let formsubmitted = false;
 const renderField = ({input,type,placeholder,style1,componentClass,meta: { touched, error }}) => {
     return (
@@ -34,7 +27,7 @@ const renderField = ({input,type,placeholder,style1,componentClass,meta: { touch
             onChange={input.onChange}
 
              />
-          
+
           </div>
     )
 }

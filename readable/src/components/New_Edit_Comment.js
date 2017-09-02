@@ -5,6 +5,13 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { onAddComment} from '../actions';
 
+
+
+
+//the redux form was designed with help from 
+//https://www.davidmeents.com/blog/create-redux-form-validation-initialized-values/
+
+
 const form = reduxForm({
   form: 'New_Edit_Comment',
 //  validate
