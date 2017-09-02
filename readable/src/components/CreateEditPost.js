@@ -9,18 +9,18 @@ import { Link,withRouter } from 'react-router-dom';
 
 const form = reduxForm({
   form: 'CreateEditPost',
-  validate
+  //validate
 });
 
-const validate = (values) => {
-  const errors = {};
-  console.log("values at validation: ", values);
-  if (!values.body) {
-    errors.body = 'Enter your Post details';
-  }
-  console.log("The current set of errors is", errors);
-  return errors;
-}
+// const validate = (values) => {
+//   const errors = {};
+//   console.log("values at validation: ", values);
+//   if (!values.body) {
+//     errors.body = 'Enter your Post details';
+//   }
+//   console.log("The current set of errors is", errors);
+//   return errors;
+// }
 let formsubmitted = false;
 const renderField = ({input,type,placeholder,style1,componentClass,meta: { touched, error }}) => {
     return (
@@ -34,7 +34,7 @@ const renderField = ({input,type,placeholder,style1,componentClass,meta: { touch
             onChange={input.onChange}
 
              />
-          {touched && error && <span>{error}</span>}
+          
           </div>
     )
 }
@@ -51,14 +51,13 @@ const renderTextAreaField = ({input,type,placeholder,componentClass,options,meta
             style={{ height: 200 }}
 
              />
-          {touched && error && <span>{error}</span>}
+
           </div>
     )
 }
 const renderSelect = ({input,componentClass,options,meta: { touched, error }}) => (
   <div>
     <FormControl
-    required
         componentClass={componentClass}
         value={input.value}
         onChange={input.onChange}
@@ -73,7 +72,6 @@ const renderSelect = ({input,componentClass,options,meta: { touched, error }}) =
          }
 
          </FormControl>
-      {touched && error && <span>{error}</span>}
       </div>
 );
 
@@ -123,16 +121,16 @@ class CreateEditPost extends Component {
 
 render(){
     const { handleSubmit } = this.props;
-    const validationState = ()=> {
-    // return "error";
-    };
+    // const validationState = ()=> {
+    // // return "error";
+    // };
 
     return(
     <div style={{marginTop: 20}}>
     <div><h2>{this.props.ptitle}</h2></div>
     <hr/>
     <Form horizontal onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-      <FormGroup controlId="posttitle"  validationState={validationState()}>
+      <FormGroup controlId="posttitle">
 
         <Col componentClass={ControlLabel} md={4}>Title:</Col>
         <Col md={4}>
@@ -145,7 +143,7 @@ render(){
         </Col>
       </FormGroup>
       {this.props.CurrentPost.id === "" &&
-      <FormGroup controlId="posttitle"  validationState={validationState()}>
+      <FormGroup controlId="postauthor">
 
         <Col componentClass={ControlLabel} md={4}>Author:</Col>
         <Col md={4}>
@@ -159,7 +157,7 @@ render(){
         </Col>
       </FormGroup>
     }
-      <FormGroup controlId="formControlsTextarea">
+      <FormGroup controlId="postbody">
             <Col componentClass={ControlLabel} md={4}>Body:</Col>
             <Col md={4}>
               <Field
@@ -173,7 +171,7 @@ render(){
 
       </FormGroup>
       {this.props.CurrentPost.id === "" &&
-      <FormGroup controlId="formControlsTextarea">
+      <FormGroup controlId="postcategory">
             <Col componentClass={ControlLabel} md={4}>Category:</Col>
             <Col md={2}>
             <Field name="Categories" label="Categories" component={renderSelect} componentClass="select" options={this.props.Categories}/>

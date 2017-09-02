@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Category from './Category';
-//import NewPost from './NewPost';
 import { connect } from 'react-redux';
 import { itemsFetchCategory,itemsFetchPosts,onSortPosts  } from '../actions';
-//import Modal from 'react-modal';
 import { Modal,Button } from 'react-bootstrap'
 import sortAsc from '../icons/sortAsc.png'
 import sortDesc from '../icons/sortDesc.png'
-//import { withRouter } from 'react-router-dom';
+
 
 
 /**
@@ -21,17 +19,10 @@ class CategoryPosts extends Component {
       //console.log(nextProps);
       this.props.fetchPosts();
     }
-  // componentDidMount(){
-  //   this.props.fetchCategories();
-  //   this.props.fetchPosts();
-  // }
+
 
    sortCol =({col})=>{
-    //console.log("clicked"+ col);
-    //sortCol = col;
-   //this.props.sortPosts(this.props.sortcol,col,this.props.sortOrderAsc,this.props.posts);
    this.props.sortPosts(col,this.props.posts);
-
 
   }
   convertToUpper(name){
@@ -88,9 +79,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         fetchCategories: () => dispatch(itemsFetchCategory()),
-        //closePost:() => dispatch(openPostModal(false)),
-        fetchPosts: () => dispatch(itemsFetchPosts()),
-        // headingClick:(col) => dispatch(onHeadingClick(col)),
+        fetchPosts: () => dispatch(itemsFetchPosts()),        
         sortPosts:(fld,posts) => dispatch(onSortPosts(fld,posts))
     }
 }

@@ -7,18 +7,18 @@ import { onAddComment} from '../actions';
 
 const form = reduxForm({
   form: 'New_Edit_Comment',
-  validate
+//  validate
 });
 
-const validate = (values) => {
-  const errors = {};
-  console.log("values at validation: ", values);
-  if (!values.body) {
-    errors.body = 'Enter your comment';
-  }
-  console.log("The current set of errors is", errors);
-  return errors;
-}
+// const validate = (values) => {
+//   const errors = {};
+//   console.log("values at validation: ", values);
+//   if (!values.body) {
+//     errors.body = 'Enter your comment';
+//   }
+//   console.log("The current set of errors is", errors);
+//   return errors;
+// }
 
 const renderField = ({input,type,placeholder,componentClass,meta: { touched, error }}) => {
     return (
@@ -31,7 +31,7 @@ const renderField = ({input,type,placeholder,componentClass,meta: { touched, err
             value={input.value}
             onChange={input.onChange}
              />
-          {touched && error && <span>{error}</span>}
+
           </div>
     )
 }
@@ -47,7 +47,6 @@ class New_Edit_Comment extends Component {
     }
 
       handleFormSubmit(formProps) {
-        //this.props.submitFormAction(formProps);
           //alert("Name passed to onSubmit: '"+ formProps.body +"'");
           //console.log("Form props passed by handleSubmit: ", formProps);
           this.props.addComment(this.props.postId,formProps);
@@ -66,14 +65,14 @@ class New_Edit_Comment extends Component {
 
 render(){
     const { handleSubmit,onClose } = this.props;
-    const validationState = ()=> {
-    // return "error";
-    };
+    // const validationState = ()=> {
+    // // return "error";
+    // };
 
     return(
     <div>
     <Form horizontal onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-    <FormGroup controlId="posttitle"  validationState={validationState()}>
+    <FormGroup controlId="posttitle">
       <Col componentClass={ControlLabel} md={4}>Author:</Col>
       <Col md={4}>
         <Field
@@ -84,7 +83,7 @@ render(){
           />
       </Col>
     </FormGroup>
-    <FormGroup controlId="formControlsTextarea">
+    <FormGroup controlId="postbody">
       <Col componentClass={ControlLabel} md={4}>Enter Comment:</Col>
       <Col md={8}>
       <Field
