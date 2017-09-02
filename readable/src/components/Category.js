@@ -5,6 +5,11 @@ import { Link,withRouter } from 'react-router-dom';
 import {  Button, ButtonToolbar } from 'react-bootstrap'
 import Post_Comments_Toolbar from './Post_Comments_Toolbar'
 
+
+/**
+ * Class representing a category with its posts
+ * @extends Component
+ */
 class Category extends Component {
 
 convertToUpper(name){

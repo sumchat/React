@@ -12,7 +12,7 @@ import sortDesc from '../icons/sortDesc.png'
 
 
 /**
- * Class representing List of Books
+ * Class representing a Category with its posts
  * @extends Component
  */
 class CategoryPosts extends Component {
