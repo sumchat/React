@@ -1,4 +1,4 @@
-## Project Title
+## Project Title:   READABLE
 
 It is a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments. This application is anonymous, with no authentication or authorization. There are no user objects, and comments and posts accept any username/name for creation and editing.
 
