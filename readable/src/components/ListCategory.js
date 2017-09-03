@@ -54,12 +54,7 @@ class ListCategories extends Component {
                 }
 
                 </table>
-
               </div>
-
-
-
-
             </div>
           )}
 
