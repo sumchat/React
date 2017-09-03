@@ -16,7 +16,7 @@ convertToUpper(name){
   return name.toUpperCase();
 }
 componentDidMount(){
-  this.props.posts === null?this.props.fetchPosts():null;
+  this.props.posts === null?this.props.itemsFetchPosts():null;
 }
 
 getTime = timestamp =>{
@@ -79,17 +79,11 @@ return(
     }
 
 
-  const mapStateToProps = (state) => {
-      //console.log(state.Post.posts);
+  const mapStateToProps = (state) => {    
       return {
           posts: state.Post.posts,
           postcols:state.Settings.postCols,
       };
   };
-  const mapDispatchToProps = (dispatch) => {
-      return {
-          fetchPosts: () => dispatch(itemsFetchPosts()),
-              }
-  }
 
-  export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Category));
+export default withRouter(connect(mapStateToProps,{itemsFetchPosts})(Category));

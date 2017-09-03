@@ -81,8 +81,8 @@ class CreateEditPost extends Component {
   componentDidMount(){
     if (!this.props.Categories)
     {
-    this.props.fetchCategories();
-    this.props.fetchPosts();
+    this.props.itemsFetchCategory();
+    this.props.itemsFetchPosts();
     }
     formsubmitted = false;
     this.handleInitialize();
@@ -93,7 +93,7 @@ class CreateEditPost extends Component {
           if (formProps.Categories == "")
             formProps.Categories = "react";
           this.category = formProps.Categories;
-          this.props.addPost(formProps);
+          this.props.onAddPost(formProps);
           }
 
       handleInitialize() {
@@ -193,16 +193,5 @@ const mapStateToProps = (state) => {
       editPostId:state.Settings.editPostId,
      }
 }
-const mapDispatchToProps = (dispatch) => {
-      return {
-          addPost:(post)=> dispatch(onAddPost(post)),
-          fetchCategories: () => dispatch(itemsFetchCategory()),
-          fetchPosts: () => dispatch(itemsFetchPosts()),
 
-      }
-  }
-
-
-
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(form(CreateEditPost)));
+export default withRouter(connect(mapStateToProps,{onAddPost,itemsFetchCategory,itemsFetchPosts})(form(CreateEditPost)));

@@ -17,12 +17,12 @@ class CategoryPosts extends Component {
 
   componentWillReceiveProps(nextProps) {
       //console.log(nextProps);
-      this.props.fetchPosts();
+      this.props.itemsFetchPosts();
     }
 
 
    sortCol =({col})=>{
-   this.props.sortPosts(col,this.props.posts);
+   this.props.onSortPosts(col,this.props.posts);
 
   }
   convertToUpper(name){
@@ -64,7 +64,7 @@ class CategoryPosts extends Component {
 
 }
 const mapStateToProps = (state,ownProps) => {
-  //console.log(state.Category.categories);
+
     return {
         categoryName:ownProps.match.params.category,
         postcols:state.Settings.postCols,
@@ -75,12 +75,4 @@ const mapStateToProps = (state,ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-    return {
-        fetchCategories: () => dispatch(itemsFetchCategory()),
-        fetchPosts: () => dispatch(itemsFetchPosts()),        
-        sortPosts:(fld,posts) => dispatch(onSortPosts(fld,posts))
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(CategoryPosts);
+export default connect(mapStateToProps,{itemsFetchPosts,onSortPosts})(CategoryPosts);

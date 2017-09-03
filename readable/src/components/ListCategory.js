@@ -15,13 +15,12 @@ import sortDesc from '../icons/sortDesc.png'
 class ListCategories extends Component {
 
   componentWillReceiveProps(nextProps) {
-  		//console.log(nextProps);
-      this.props.fetchPosts();
+      this.props.itemsFetchPosts();
   	}
 
    sortCol =({col})=>{
 
-   this.props.sortPosts(col,this.props.posts);
+   this.props.onSortPosts(col,this.props.posts);
   }
 
 
@@ -66,23 +65,14 @@ class ListCategories extends Component {
 
 }
 const mapStateToProps = (state) => {
-  //console.log(state.Category.categories);
     return {
         Category_o: state.Category.categories,
         postcols:state.Settings.postCols,
         posts: state.Post.posts,
         sortOrderAsc:state.Settings.sortOrderAsc,
         sortedCol:state.Settings.sortCol,
-
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
 
-    return {
-        fetchCategories: () => dispatch(itemsFetchCategory()),
-        fetchPosts: () => dispatch(itemsFetchPosts()),
-        sortPosts:(fld,posts) => dispatch(onSortPosts(fld,posts))
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ListCategories);
+export default connect(mapStateToProps,{itemsFetchPosts,onSortPosts})(ListCategories);
