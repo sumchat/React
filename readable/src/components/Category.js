@@ -16,12 +16,7 @@ convertToUpper(name){
   return name.toUpperCase();
 }
 componentDidMount(){
-  if (!this.props.posts)
-  {
-  this.props.fetchPosts();
-  }
-
-
+  this.props.posts === null?this.props.fetchPosts():null;
 }
 
 getTime = timestamp =>{
