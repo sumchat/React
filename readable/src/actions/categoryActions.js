@@ -1,4 +1,4 @@
-import * as ReadableAPI from '../ReadableAPI'
+import * as CategoriesAPI from '../api/CategoriesAPI'
 import {CATEGORIES_HAS_ERRORED,FETCH_CATEGORIES} from './types'
 
 export const fetchCategories = categories =>({
@@ -18,7 +18,7 @@ export function categoriesHasErrored(bool) {
 */
 
 export const itemsFetchCategory = () =>  dispatch => {
-   ReadableAPI.getCategories()
+   CategoriesAPI.getCategories()
   .then(categories => dispatch(fetchCategories(categories)))
   .catch((e) => console.error(e))
 

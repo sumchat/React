@@ -1,4 +1,4 @@
-import * as ReadableAPI from '../ReadableAPI'
+import * as PostsAPI from '../api/PostsAPI'
 import {FETCH_POSTS,ADD_POST,UPDATE_CURRENT_POST,UPDATE_POST,ISOPEN_POST,TOGGLE_SORT,POSTS_HAS_ERRORED} from './types'
 import {default as UUID} from 'uuid'
 import {setSortCol,setSortOrder,togglePostSortOrder,sortPosts,getSortCol,getSortOrder} from '../utils/helper'
@@ -50,7 +50,7 @@ export function postsHasErrored(bool,id) {
  *
  */
 export const onDeletePost = (id) => dispatch =>{
-  ReadableAPI.deletePost(id).then(post => {
+  PostsAPI.deletePost(id).then(post => {
     dispatch(itemsFetchPosts())
   })
   .catch((e) =>{
@@ -69,7 +69,7 @@ export const onAddPost = (post) => dispatch =>{
   if (post.id === "")
   {
    id = UUID.v4();
-  ReadableAPI.addPost(id,timestamp,post.title,post.body,post.author,post.Categories).then(post => {
+  PostsAPI.addPost(id,timestamp,post.title,post.body,post.author,post.Categories).then(post => {
   dispatch(postsHasErrored(false,id));
   dispatch(addPost(post))
    })
@@ -79,7 +79,7 @@ export const onAddPost = (post) => dispatch =>{
    });
  }
  else {
-   ReadableAPI.updatePost(post.id,timestamp,post.title,post.body).then(post => {
+   PostsAPI.updatePost(post.id,timestamp,post.title,post.body).then(post => {
   dispatch(postsHasErrored(false,id));
    dispatch(updatePost(post))
  })
@@ -108,7 +108,7 @@ export const editCurrentPost=(id) => dispatch =>{
  * @param {string} option - upVote/downVote
  */
 export const updateVotingPost = (id,option) => dispatch =>{
-  ReadableAPI.votingPost(id,option).then(post => {
+  PostsAPI.votingPost(id,option).then(post => {
   let mystore = store.getState();
   let modifiedPosts = mystore.Post.posts.filter((p)=> p.id !== post.id);
     modifiedPosts.push(post);    ;
@@ -143,7 +143,7 @@ dispatch(toggleSort(isAsc,sortCol));
 * get all the posts from the server
 */
 export const itemsFetchPosts = () =>  dispatch => {
-   ReadableAPI.getAllPosts()
+   PostsAPI.getAllPosts()
   .then(data => {
     data.sort(sortPosts);
     dispatch(fetchPosts(data))

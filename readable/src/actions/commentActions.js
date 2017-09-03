@@ -1,4 +1,4 @@
-import * as ReadableAPI from '../ReadableAPI'
+import * as CommentsAPI from '../api/CommentsAPI'
 import {FETCH_COMMENTS,ADD_COMMENT,UPDATE_CURRENT_COMMENT,NEW_COMMENT,UPDATE_COMMENT,ISOPEN_COMMENT,} from './types'
 import {default as UUID} from 'uuid'
 import {setSortCol,setSortOrder,getSortCol,sortComments,getSortOrder} from '../utils/helper'
@@ -42,7 +42,7 @@ export function openNewComment(isOpen){
  *
  */
 export const onDeleteComment = (id) => dispatch =>{
-  ReadableAPI.deleteComment(id).then(comment => {
+  CommentsAPI.deleteComment(id).then(comment => {
     dispatch(updateComment(comment))
   })
   .catch((e) =>{
@@ -62,7 +62,7 @@ export const onAddComment = (parentId,comment) => dispatch =>{
   if (comment.id === "")
   {
    id = UUID.v4();
-  ReadableAPI.addComment(id,timestamp,comment.body,comment.author,parentId).then(comment => {
+  CommentsAPI.addComment(id,timestamp,comment.body,comment.author,parentId).then(comment => {
   dispatch(addComment(comment))
    })
    .catch((e) =>{
@@ -71,7 +71,7 @@ export const onAddComment = (parentId,comment) => dispatch =>{
    });
  }
  else {
-   ReadableAPI.updateComment(comment.id,timestamp,comment.author,comment.body).then(comment => {
+   CommentsAPI.updateComment(comment.id,timestamp,comment.author,comment.body).then(comment => {
   //dispatch(postsHasErrored(false,id));
    dispatch(updateComment(comment))
  })
@@ -114,7 +114,7 @@ export const editCurrentComment=(id) => dispatch =>{
   * @param {string} option - upVote/downVote
   */
   export const updateVotingComment = (id,option) => dispatch =>{
-    ReadableAPI.votingComment(id,option).then(comment => {
+    CommentsAPI.votingComment(id,option).then(comment => {
     let mystore = store.getState();
     let modifiedComments = mystore.Comments.comments.filter((c)=> c.id !== comment.id);
       modifiedComments.push(comment);
@@ -140,7 +140,7 @@ export const editCurrentComment=(id) => dispatch =>{
 * get all the comments for a post from the server
 */
 export const itemsFetchComments = (postId) =>  dispatch => {
-   ReadableAPI.getAllComments(postId)
+   CommentsAPI.getAllComments(postId)
   .then(data => {
     data.sort(sortComments);
     dispatch(fetchComments(data))
