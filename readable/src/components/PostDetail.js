@@ -47,8 +47,6 @@
       this.props.updateVoting(id,option);
     }
 
-
-
    setSortCol(event){
      sortCol = event.target.value;
    }
@@ -67,7 +65,15 @@
        if(comments)
           filteredcomments = comments.filter((comment)=> comment.deleted === false);
       return(
+
         <div>
+        {  this.props.post   && (this.props.post.filter((post)=> post.id === this.props.postid && post.deleted === true).map((post)=>{
+            return(<div key={post.id}>
+              <div className="Jumbotron">
+                <h1 className="error">We're sorry but the page you're looking for could not be found</h1>
+              </div>
+            </div>)
+          }))}
         {this.props.post   && (this.props.post.filter((post)=> post.id === this.props.postid && post.deleted === false).map((post)=>{
           return(
             <div key={post.id}>
@@ -87,16 +93,12 @@
              </Col>
 
            </Row>
-
          </Grid>
-
           <div className="row-padded">
            <label style={{marginLeft: "0px", marginRight: "10px"}} ><span>Time:{this.getTime(post.timestamp)}</span></label>
            <label style={{marginLeft: "0px", marginRight: "10px"}} ><span>vote:{post.voteScore}</span></label>
            <Post_Comments_Toolbar type='post' id={post.id} from='postDetail'/>
            </div>
-
-
          <div className="row-padded1">
          <label style={{marginLeft: "0px", marginRight: "30px"}}><span>COMMMENTS:{this.props.comments && this.props.comments.length}</span></label>
          <label style={{marginLeft: "20px", marginRight: "10px"}}><span>Sort By:</span></label>
@@ -120,17 +122,12 @@
                   <label style={{marginLeft: "0px", marginRight: "10px"}} ><span>Time:{this.getTime(comment.timestamp)}</span></label>
                   <label style={{marginLeft: "0px", marginRight: "10px"}} ><span>vote:{comment.voteScore}</span></label>
                   <Post_Comments_Toolbar type='comments' id={post.id} commentId={comment.id}/>
-
                   </Panel>
-
               )
             })
           }
 
          </div>
-
-
-
           <Modal show={this.props.isCommentOpen} onHide={this.props.closeComment}>
             <Modal.Header closeButton>
               <Modal.Title>Add/Edit a Comment</Modal.Title>
