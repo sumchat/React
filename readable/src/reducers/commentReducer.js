@@ -1,6 +1,17 @@
 import {initialState } from './initialState'
 import { ADD_COMMENT,FETCH_COMMENTS,UPDATE_COMMENT} from '../actions'
 
+
+
+
+function updatemodifiedComment(p,modifiedComment)
+{
+  if (p.id === modifiedComment.id)
+  {
+      p = modifiedComment;
+    }
+  return p;
+}
 export function commentReducer(state=initialState["comments"], action){
   const { parentid,comment,comments } = action
   switch (action.type){
@@ -18,17 +29,10 @@ export function commentReducer(state=initialState["comments"], action){
     case UPDATE_COMMENT:
         const { modifiedComment } = action
         let mcomments = Object.assign([], state.comments)
-         mcomments.map((p)=> {
-             if (p.id === modifiedComment.id)
-             {
-                 p.author = modifiedComment.author;
-                 p.body = modifiedComment.body
-               }
-           });
-       return {
-
-             ["comments"]:mcomments
-           }
+        let modcomments = mcomments.map((comment)=>updatemodifiedComment(comment,modifiedComment))
+        return{
+          ["comments"]:modcomments
+        }
 
     default:
       return state;

@@ -23,7 +23,7 @@
       editPost=(id,group,commentId) =>{
       if(group == "post"){
         this.props.populateCurrentPost(id);
-        this.props.history.push('/posts/createEditPost')
+        this.props.history.push('/category/posts/createEditPost')
       }
       if(group == "comments"){
         this.props.openComment(id,true);

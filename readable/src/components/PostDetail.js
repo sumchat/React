@@ -9,6 +9,7 @@
 
   import New_Edit_Comment from './New_Edit_Comment'
   import Post_Comments_Toolbar from './Post_Comments_Toolbar'
+  import NotFound from './NotFound'
 
     let sortCol = "voteScore";
     let sortOrder = "Desc"
@@ -18,7 +19,7 @@
      * @extends Component
      */
   class PostDetail extends Component {
-    componentDidMount(){
+    componentWillMount(){
       if (!this.props.post)
       {
       this.props.fetchCategories();
@@ -27,11 +28,11 @@
       this.props.fetchComments(this.props.postid);
 
     }
-    componentWillReceiveProps(nextProps) {
-        //console.log(nextProps);
-      //this.props.fetchPosts();
-      this.props.fetchComments(this.props.postid);
-      }
+    // componentWillReceiveProps(nextProps) {
+    //     //console.log(nextProps);
+    //   //this.props.fetchPosts();
+    //   this.props.comments== null?this.props.fetchComments(this.props.postid):null;
+    //   }
     addComment = ({post})=>{
       this.props.openComment(post.id,true);
     }
@@ -64,16 +65,15 @@
      let filteredcomments = null;
        if(comments)
           filteredcomments = comments.filter((comment)=> comment.deleted === false);
+      const pst =  this.props.post   && this.props.post.filter((p)=> p.id == this.props.postid);
       return(
 
         <div>
-        {  this.props.post   && (this.props.post.filter((post)=> post.id === this.props.postid && post.deleted === true).map((post)=>{
-            return(<div key={post.id}>
-              <div className="Jumbotron">
-                <h1 className="error">We're sorry but the page you're looking for could not be found</h1>
-              </div>
-            </div>)
-          }))}
+          {this.props.post && (this.props.post.filter((p)=> p.id === this.props.postid).length === 0 ||
+           (this.props.post.filter((post)=> post.id === this.props.postid && post.deleted === false).length === 0))
+            ?<NotFound/>:
+
+        <div>
         {this.props.post   && (this.props.post.filter((post)=> post.id === this.props.postid && post.deleted === false).map((post)=>{
           return(
             <div key={post.id}>
@@ -145,6 +145,7 @@
         )}
         )
         )}
+      </div>}
 
         </div>
         )

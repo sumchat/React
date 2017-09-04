@@ -6,7 +6,7 @@ import { itemsFetchCategory,itemsFetchPosts,onSortPosts  } from '../actions';
 import { Modal,Button } from 'react-bootstrap'
 import sortAsc from '../icons/sortAsc.png'
 import sortDesc from '../icons/sortDesc.png'
-
+import NotFound from './NotFound'
 
 
 /**
@@ -15,6 +15,10 @@ import sortDesc from '../icons/sortDesc.png'
  */
 class CategoryPosts extends Component {
 
+
+  componentWillMount(){
+    this.props.Category_o === null?this.props.itemsFetchCategory():null;
+  }
   componentWillReceiveProps(nextProps) {
       //console.log(nextProps);
       this.props.itemsFetchPosts();
@@ -30,10 +34,14 @@ class CategoryPosts extends Component {
   }
 
   render() {
-      const {categoryName,postcols} = this.props;
+      const {categoryName,postcols,Category_o} = this.props;
+      let  filteredcategories = Category_o && Category_o.filter((category)=> category.name === categoryName);
+      const numberofcat = filteredcategories && filteredcategories.length;
       return(
 
         <div>
+          {numberofcat === 0 ?<NotFound/>:
+            <div>
               <div><h3>{this.convertToUpper(categoryName)}</h3></div>
               <div>
               <table className="moduleSection"><thead className="headerSection"><tr><th/>{
@@ -49,15 +57,11 @@ class CategoryPosts extends Component {
                </tr>
                </thead>
                <Category  categoryObj={categoryName} ></Category>
-
-
                 </table>
-
               </div>
+            </div>
 
-
-
-
+          }
             </div>
           )}
 
@@ -71,8 +75,9 @@ const mapStateToProps = (state,ownProps) => {
         posts: state.Post.posts,
         sortOrderAsc:state.Settings.sortOrderAsc,
         sortCol:state.Settings.sortCol,
+        Category_o: state.Category.categories,
 
     }
 }
 
-export default connect(mapStateToProps,{itemsFetchPosts,onSortPosts})(CategoryPosts);
+export default connect(mapStateToProps,{itemsFetchPosts,onSortPosts,itemsFetchCategory})(CategoryPosts);
