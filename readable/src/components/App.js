@@ -25,9 +25,9 @@ import React, { Component } from 'react';
          READABLE
        </Navbar.Brand>
      </Navbar.Header>
-     <Nav>
+     <Nav> 
        <NavItem eventKey={1} href="/"><span className="navlink">Home</span></NavItem>
-       <NavItem eventKey={2} href="/posts/createEditPost"><span className="navlink">Add Post</span></NavItem>
+       <NavItem eventKey={2} href="/category/posts/createEditPost"><span className="navlink">Add Post</span></NavItem>
 
        <NavDropdown eventKey={3} title="Categories" id="basic-nav-dropdown">
          <MenuItem eventKey={3.1} href="/react">React</MenuItem>
@@ -42,8 +42,8 @@ import React, { Component } from 'react';
         <div>
         <Route exact path='/'  component={ListCategories}/>
         <Route exact path='/:category'  component={CategoryPosts} />
-        <Route path='/:category/:id' component={PostDetail}/>
-        <Route exact path='/posts/createEditPost'  component={CreateEditPost} />
+        <Route exact path='/:category/:id' component={PostDetail}/>
+        <Route exact path='/category/posts/createEditPost'  component={CreateEditPost} />
         </div>
         </Router>
         </div>
