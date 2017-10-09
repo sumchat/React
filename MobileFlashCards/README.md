@@ -11,7 +11,7 @@ The project is created using create-react-native-app. Here are some requirements
 4.The back of the card should display the answer.
 5.Users should be able to quiz themselves on a specific deck and receive a score once they're done.
 6.Users should receive a notification to remind themselves to take a Quiz if they haven't already for that day
-##Additional Functionalities
+## Additional Functionalities
 7.Users can see data logged on past days in a user Friendly Calendar. The calendar control is taken from Udacifitness. The calendar is populated with some dummy data
 for some days before the install date.
 8.Once a user takes a quiz a default value of 1 hour  is assigned for Study metric which the user can then modify through AddEntry tab.
@@ -19,7 +19,7 @@ for some days before the install date.
 
 ## Data
 The app comes with 2 prepopulated decks. AsyncStorage is used to store the data.
-##Test
+## Test
 The app was tested in iPhone 6S plus with Expo.
 
 ## Installation
