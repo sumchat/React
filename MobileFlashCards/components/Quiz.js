@@ -18,6 +18,12 @@ import {
   setLocalNotification
 } from '../utils/helpers'
 
+/**
+* The animation part is coded based on the example given in the
+* https://github.com/browniefed/examples/blob/animated_basic/flip/animatedbasic/index.android.js
+*
+*/
+
  class Quiz extends Component{
 
   static navigationOptions =({navigation})=> {
