@@ -10,6 +10,10 @@ import MetricCard from './MetricCard'
 import { AppLoading} from 'expo'
 import { fetchCalendarResults } from '../utils/api'
 
+/**
+ * This component is based on the History component that was created in UdacityFitness example
+ * as part of Udacity nanodegree.
+ */
 class History extends Component {
   state = {
     ready: false,

@@ -26,6 +26,11 @@ function SubmitBtn ({ onPress }) {
     </TouchableOpacity>
   )
 }
+
+/**
+ * This component is based on the AddEntry component that was created in UdacityFitness example
+ * as part of Udacity nanodegree.
+ */
 class AddEntry extends Component {
 
   state = {
