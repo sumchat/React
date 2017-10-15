@@ -5,7 +5,10 @@ It is a mobile application (Android or iOS - or both) that allows users to study
 ![Home Page](images/home.PNG)<!-- .element height="50%" width="50%" -->
 ![Deck Page](images/deck.PNG)<!-- .element height="50%" width="50%" -->
 ![Add_Entry Page](images/add_entry.PNG)<!-- .element height="50%" width="50%" -->
-
+<p align="center">
+  <img src="images/home.PNG" width="200"/>
+  <img src="images/add_entry.PNG" width="200"/>
+</p>
 
 ## Specification
 The project is created using create-react-native-app. Here are some requirements for the app.
