@@ -4,8 +4,8 @@ It is a mobile application (Android or iOS - or both) that allows users to study
 
 ![Home Page](images/home.PNG)
 ![Deck Page](images/deck.PNG)
-![Add_Entry Page](images/add_entry.png)
-![Quiz Page](images/quiz.PNG)
+![Add_Entry Page](images/add_entry.PNG)
+
 
 ## Specification
 The project is created using create-react-native-app. Here are some requirements for the app.
