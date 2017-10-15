@@ -4,7 +4,7 @@ It is a mobile application (Android or iOS - or both) that allows users to study
 
 ![Home Page](images/home.PNG?v=4&s=200)
 ![Deck Page](images/deck.PNG?v=4&s=200)
-![Add_Entry Page](images/add_entry.PNG?v=4&s=200)
+![Add_Entry Page](https://github.com/sumchat/React/blob/master/MobileFlashCards/images/home.PNG?v=4&s=200)
 
 
 ## Specification
