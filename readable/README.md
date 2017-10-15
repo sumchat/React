@@ -2,7 +2,8 @@
 
 It is a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments. This application is anonymous, with no authentication or authorization. There are no user objects, and comments and posts accept any username/name for creation and editing.
 
-
+![Home Page](images/HomePage.png)
+![Post and Comments Page](images/Post_comments.png)
 ## Specification
 The server is built in Node. The code will talk to the server using documented API endpoints. You can use the server's endpoints to manage storing, reading, updating, and deleting data for your application.
 The front end is a React/Redux application using React Bootstrap. All of the state for the application is controlled by the reducers. Out of the box, the Redux store can only support the synchronous flow of data. Thunk middleware is  used to support the  asynchronicity in the application.
