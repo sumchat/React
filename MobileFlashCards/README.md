@@ -2,9 +2,9 @@
 
 It is a mobile application (Android or iOS - or both) that allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks.
 
-![Home Page](images/home.PNG){:height="50%" width="50%"}
-![Deck Page](images/deck.PNG){:height="50%" width="50%"}
-![Add_Entry Page](images/add_entry.PNG){:height="50%" width="50%"}
+![Home Page](images/home.PNG?v=4&s=200)
+![Deck Page](images/deck.PNG?v=4&s=200)
+![Add_Entry Page](images/add_entry.PNG?v=4&s=200)
 
 
 ## Specification
