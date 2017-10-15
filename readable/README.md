@@ -4,6 +4,11 @@ It is a content and comment web app. Users will be able to post content to prede
 
 ![Home Page](images/Home.png)
 ![Post and Comments Page](images/Post_comments.png)
+<p align="center">
+  <img src="images/Home.png" width="400"/>
+  <img src="images/Post_comments.png" width="400"/>
+
+</p>
 ## Specification
 The server is built in Node. The code will talk to the server using documented API endpoints. You can use the server's endpoints to manage storing, reading, updating, and deleting data for your application.
 The front end is a React/Redux application using React Bootstrap. All of the state for the application is controlled by the reducers. Out of the box, the Redux store can only support the synchronous flow of data. Thunk middleware is  used to support the  asynchronicity in the application.

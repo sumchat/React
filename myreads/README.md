@@ -4,7 +4,11 @@ It is a bookshelf web application that allows to search, select and categorize b
 
 ![Home Page](images/HomePage.png)
 ![Search Page](images/SearchPage.png)
+<p align="center">
+  <img src="images/HomePage.png" width="400"/>
+  <img src="images/SearchPage.png" width="400"/>
 
+</p>
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
